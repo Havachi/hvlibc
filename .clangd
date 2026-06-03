@@ -1,0 +1,9 @@
+CompileFlags:
+	Add: [
+		"-nostdinc",
+		"-ffreestanding",
+		"-I/home/h/src/projects/hvlibc/include",
+		"-I/home/h/src/projects/hvlibc/sys",
+		"-I/home/h/src/projects/hvlibc/sys/hvos/include",
+		"-I/home/h/src/projects/hvlibc/obj/include"
+	]
