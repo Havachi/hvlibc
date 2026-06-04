@@ -1,6 +1,13 @@
 #include <string.h>
 
-void *memmove(void *dest, const void *src, size_t len) {
+#undef __memmove
+#undef memmove
+
+#ifndef MEMMOVE
+#define MEMMOVE  __memmove
+#endif
+
+void *__memmove(void *dest, const void *src, size_t len) {
 	char *d = dest;
 	const char *s = src;
 	if (d < s)
@@ -14,3 +21,5 @@ void *memmove(void *dest, const void *src, size_t len) {
 	}
 	return dest;
 }
+
+weak_alias(__memmove, memmove)

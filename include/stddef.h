@@ -4,7 +4,7 @@
 #include <sys/cdefs.h>
 #include <sys/_types.h>
 #include <sys/_null.h>
-
+#include <libc-symbols.h>
 #ifndef __PTRDIFF_T_DEFINED_
 #define __PTRDIFF_T_DEFINED_
 typedef __ptrdiff_t ptrdiff_t;
@@ -25,12 +25,7 @@ typedef	__wchar_t	wchar_t;
 typedef	__wint_t	wint_t;
 #endif
 
-#define strong_alias(name, aliasname) _strong_alias(name, aliasname)
-#define _strong_alias(name, aliasname) \
-	extern __typeof (name) aliasname __attribute__ ((alias (#name)));
 
 
-#define weak_alias(name, aliasname) __weak_alias(name, aliasname)
-#define __weak_alias(name, aliasname) \
-	extern __typeof (name) aliasname __attribute__ ((weak, alias (#name)));
+
 #endif

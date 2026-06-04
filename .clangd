@@ -1,9 +1,12 @@
 CompileFlags:
-	Add: [
-		"-nostdinc",
-		"-ffreestanding",
-		"-I/home/h/src/projects/hvlibc/include",
-		"-I/home/h/src/projects/hvlibc/sys",
-		"-I/home/h/src/projects/hvlibc/sys/hvos/include",
-		"-I/home/h/src/projects/hvlibc/obj/include"
-	]
+  Add:
+    - --target=x86_64-elf
+    - -ffreestanding
+    - -nostdinc
+    - -std=c11
+    - -isystem include
+    - -isystem sys/
+    - -isystem sys/hvos/include
+    - -isystem obj/include
+  Remove:
+    - -I*

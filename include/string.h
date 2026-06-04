@@ -4,30 +4,31 @@
 #include <stddef.h>
 
 extern void    *memcpy(void * __dest, const void * __src, size_t __n);
-void    *memccpy(void *, const void *, int, size_t);
-void    *memchr(const void *, int, size_t);
-int      memcmp(const void *, const void *, size_t);
-void    *memmove(void *, const void *, size_t);
-void    *memset(void *, int, size_t);
+extern void    *memmove(void *__dest, const void *__src, size_t __n);
+extern void    *memccpy(void *__dest, const void *__src, int __c, size_t __n);
+extern void    *memset(void *__s, int __c, size_t __n);
+extern int      memcmp(const void *__s1, const void *__s2, size_t __n);
+extern void    *memchr(const void *__s, int __c, size_t __n);
+extern void		*__mempcpy(void *__dest, const void * __src, size_t __n);
 
-char    *strcat(char *, const char *);
-char    *strchr(const char *, int);
-int      strcmp(const char *, const char *);
-int      strcoll(const char *, const char *);
-char    *strcpy(char *, const char *);
-size_t   strcspn(const char *, const char *);
-char    *strdup(const char *);
-char    *strerror(int);
-size_t   strlen(const char *);
-char    *strncat(char *, const char *, size_t);
-int      strncmp(const char *, const char *, size_t);
-char    *strncpy(char *, const char *, size_t);
-char    *strpbrk(const char *, const char *);
-char    *strrchr(const char *, int);
-size_t   strspn(const char *, const char *);
-char    *strstr(const char *, const char *);
-char    *strtok(char *, const char *);
-char    *strtok_r(char *, const char *, char **);
-size_t   strxfrm(char *, const char *, size_t);
+extern char    *strcpy(char *__dest, const char *__src);
+extern char    *strcat(char *__dest, const char *__src);
+extern char    *strchr(const char *__s, int __c);
+extern int      strcmp(const char *__s1, const char *__s2);
+extern int      strcoll(const char *__s1, const char *__s2);
+extern size_t   strcspn(const char *__s1, const char *__s2);
+extern char    *strdup(const char *__s);
+extern char    *strerror(int __e);
+extern size_t   strlen(const char *__s);
+extern char    *strncat(char *__dest, const char *__src, size_t __n);
+extern int      strncmp(const char *__s1, const char *__s2, size_t __n);
+extern char    *strncpy(char *__dest, const char *__src, size_t __n);
+extern char    *strpbrk(const char *__s, const char *__accept);
+extern char    *strrchr(const char *__s, int __c);
+extern size_t   strspn(const char *__s, const char *__accept);
+extern char    *strstr(const char *__haystack, const char *__needle);
+extern char    *strtok(char *__s, const char *__delim);
+extern char    *strtok_r(char *__s, const char *__delim, char **__save_ptr);
+extern size_t   strxfrm(char *__dest, const char *__src, size_t __n);
 
 #endif

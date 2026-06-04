@@ -1,0 +1,61 @@
+[
+  {
+    "directory": "/home/havachi/source/hvos/hvlibc",
+    "file":      "/home/havachi/source/hvos/hvlibc/src/string/memcmp.c",
+    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -Werror -O2 -isystem include -isystem sys/ -isystem sys/hvos/include -isystem obj/include -std=c11 -MMD -MP -nostdinc -c /home/havachi/source/hvos/hvlibc/src/string/memcmp.c"
+  }
+  ,
+  {
+    "directory": "/home/havachi/source/hvos/hvlibc",
+    "file":      "/home/havachi/source/hvos/hvlibc/src/string/mempcpy.c",
+    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -Werror -O2 -isystem include -isystem sys/ -isystem sys/hvos/include -isystem obj/include -std=c11 -MMD -MP -nostdinc -c /home/havachi/source/hvos/hvlibc/src/string/mempcpy.c"
+  }
+  ,
+  {
+    "directory": "/home/havachi/source/hvos/hvlibc",
+    "file":      "/home/havachi/source/hvos/hvlibc/src/string/memcpy.c",
+    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -Werror -O2 -isystem include -isystem sys/ -isystem sys/hvos/include -isystem obj/include -std=c11 -MMD -MP -nostdinc -c /home/havachi/source/hvos/hvlibc/src/string/memcpy.c"
+  }
+  ,
+  {
+    "directory": "/home/havachi/source/hvos/hvlibc",
+    "file":      "/home/havachi/source/hvos/hvlibc/src/string/memset.c",
+    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -Werror -O2 -isystem include -isystem sys/ -isystem sys/hvos/include -isystem obj/include -std=c11 -MMD -MP -nostdinc -c /home/havachi/source/hvos/hvlibc/src/string/memset.c"
+  }
+  ,
+  {
+    "directory": "/home/havachi/source/hvos/hvlibc",
+    "file":      "/home/havachi/source/hvos/hvlibc/src/string/strcpy.c",
+    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -Werror -O2 -isystem include -isystem sys/ -isystem sys/hvos/include -isystem obj/include -std=c11 -MMD -MP -nostdinc -c /home/havachi/source/hvos/hvlibc/src/string/strcpy.c"
+  }
+  ,
+  {
+    "directory": "/home/havachi/source/hvos/hvlibc",
+    "file":      "/home/havachi/source/hvos/hvlibc/src/string/memmove.c",
+    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -Werror -O2 -isystem include -isystem sys/ -isystem sys/hvos/include -isystem obj/include -std=c11 -MMD -MP -nostdinc -c /home/havachi/source/hvos/hvlibc/src/string/memmove.c"
+  }
+  ,
+  {
+    "directory": "/home/havachi/source/hvos/hvlibc",
+    "file":      "/home/havachi/source/hvos/hvlibc/src/string/memccpy.c",
+    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -Werror -O2 -isystem include -isystem sys/ -isystem sys/hvos/include -isystem obj/include -std=c11 -MMD -MP -nostdinc -c /home/havachi/source/hvos/hvlibc/src/string/memccpy.c"
+  }
+  ,
+  {
+    "directory": "/home/havachi/source/hvos/hvlibc",
+    "file":      "/home/havachi/source/hvos/hvlibc/sys/hvos/_exit.c",
+    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -Werror -O2 -isystem include -isystem sys/ -isystem sys/hvos/include -isystem obj/include -std=c11 -MMD -MP -nostdinc -c /home/havachi/source/hvos/hvlibc/sys/hvos/_exit.c"
+  }
+  ,
+  {
+    "directory": "/home/havachi/source/hvos/hvlibc",
+    "file":      "/home/havachi/source/hvos/hvlibc/sys/hvos/_read.c",
+    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -Werror -O2 -isystem include -isystem sys/ -isystem sys/hvos/include -isystem obj/include -std=c11 -MMD -MP -nostdinc -c /home/havachi/source/hvos/hvlibc/sys/hvos/_read.c"
+  }
+  ,
+  {
+    "directory": "/home/havachi/source/hvos/hvlibc",
+    "file":      "/home/havachi/source/hvos/hvlibc/sys/hvos/_write.c",
+    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -Werror -O2 -isystem include -isystem sys/ -isystem sys/hvos/include -isystem obj/include -std=c11 -MMD -MP -nostdinc -c /home/havachi/source/hvos/hvlibc/sys/hvos/_write.c"
+  }
+]

@@ -1,6 +1,13 @@
 #include <stddef.h>
 
-int memcmp(const void *str1, const void *str2, size_t count) {
+#undef __memcmp
+#undef memcmp
+
+#ifdef memcmp
+# define __memcmp MEMCMP
+#endif
+
+int __memcmp(const void *str1, const void *str2, size_t count) {
 	const unsigned char *s1 = str1;
 	const unsigned char *s2 = str2;
 
@@ -10,3 +17,5 @@ int memcmp(const void *str1, const void *str2, size_t count) {
 	}
 	return 0;
 }
+
+weak_alias(__memcmp, memcmp);
