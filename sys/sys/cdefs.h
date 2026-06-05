@@ -32,10 +32,10 @@
 #define __only_inline	extern __inline __attribute__((__gnu_inline__))
 #define __predict_true(exp)	__builtin_expect(((exp) != 0), 1)
 #define __predict_false(exp)	__builtin_expect(((exp) != 0), 0)
-
 #define	__packed	__attribute__((__packed__))
 #define	__aligned(x)	__attribute__((__aligned__(x)))
 #define	__malloc	__attribute__((__malloc__))
+#define __attribute_const__ __attribute__ ((__const__))
 
 #ifdef	__cplusplus
 # define __BEGIN_DECLS	extern "C" {

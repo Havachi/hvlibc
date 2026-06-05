@@ -1,46 +1,73 @@
 ARCH ?= x86_64
 SYS  ?= hvos
 
-TARGET_CC = $(ARCH)-elf-gcc
-TARGET_AR = $(ARCH)-elf-ar
+TARGET_CC = $(strip $(ARCH))-elf-gcc
+TARGET_AR = $(strip $(ARCH))-elf-ar
 
 SRC_DIR = src
-ARC_DIR = arch/$(ARCH)
-SYS_DIR = sys/$(SYS)
+SYS_DIR = sys/$(strip $(SYS))
 OBJ_DIR = obj
 BIN_DIR = bin
 
 INC_DIR     = include
-SYS_INC     = sys/
-SPE_SYS_INC = sys/$(SYS)/include
+SYS_INC     = sys
+SPE_SYS_INC = sys/$(strip $(SYS))/include
 
 LIB_NAME = $(BIN_DIR)/hvlibc.a
 
-INC_FLAGS = -I$(INC_DIR) -I$(SYS_INC) -I$(SPE_SYS_INC) -I$(OBJ_DIR)/include
+CRT_NAMES := crti crtn
+CRT_OBJS  := $(patsubst %, $(BIN_DIR)/%.o, $(CRT_NAMES))
+
+SYSDEPS_DIR      = sysdeps
+SYSDEPS_ARCH_DIR = sysdeps/$(strip $(ARCH))
+SYSDEPS_GEN_DIR  = sysdeps/generic
+
+SYSTEMINCL = 1
+ifeq ($(SYSTEMINCL), 1)
+INC_FLAGS = -isystem$(INC_DIR) -isystem$(SYS_INC) -isystem$(SPE_SYS_INC) -isystem$(OBJ_DIR)/include -isystem$(SYSDEPS_ARCH_DIR) -isystem$(SYSDEPS_GEN_DIR)
+else
+INC_FLAGS = -I$(INC_DIR) -I$(SYS_INC) -I$(SPE_SYS_INC) -I$(OBJ_DIR)/include -I$(SYSDEPS_ARCH_DIR) -I$(SYSDEPS_GEN_DIR)
+endif
+
 CFLAGS    = -ffreestanding -Wall -Wextra -Werror -O2 $(INC_FLAGS) -std=c11 -MMD -MP -nostdinc
-ASFLAGS   = -ffreestanding $(INC_FLAGS)
+ASFLAGS   = -ffreestanding $(INC_FLAGS) -MMD -MP
 
 SRCS_C   := $(shell find $(SRC_DIR) -name '*.c' 2>/dev/null) \
             $(wildcard $(SYS_DIR)/*.c)
 
-SRCS_ASM := $(shell find $(ARC_DIR) -name '*.s' 2>/dev/null)
+SRCS_ASM := $(wildcard $(SYSDEPS_ARCH_DIR)/*.S) $(wildcard $(SYSDEPS_ARCH_DIR)/*.s) \
+            $(wildcard $(SYSDEPS_GEN_DIR)/*.S) $(wildcard $(SYSDEPS_GEN_DIR)/*.s)
+
+SRCS_ASM := $(filter-out %crti.S %crti.s %crtn.S %crtn.s, $(SRCS_ASM))
 
 OBJS_C   := $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRCS_C))
-OBJS_ASM := $(patsubst %.s, $(OBJ_DIR)/%.o, $(SRCS_ASM))
-OBJS     := $(OBJS_C) $(OBJS_ASM)
-DEPS     := $(OBJS:.o=.d)
+OBJS_ASM_UPPER := $(patsubst %.S, $(OBJ_DIR)/%.o, $(filter %.S, $(SRCS_ASM)))
+OBJS_ASM_LOWER := $(patsubst %.s, $(OBJ_DIR)/%.o, $(filter %.s, $(SRCS_ASM)))
+OBJS     := $(OBJS_C) $(OBJS_ASM_UPPER) $(OBJS_ASM_LOWER)
+DEPS     := $(OBJS:.o=.d) $(CRT_OBJS:.o=.d)
+
+CRTI_SRC := $(firstword $(wildcard $(SYSDEPS_ARCH_DIR)/crti.S) $(wildcard $(SYSDEPS_ARCH_DIR)/crti.s))
+CRTN_SRC := $(firstword $(wildcard $(SYSDEPS_ARCH_DIR)/crtn.S) $(wildcard $(SYSDEPS_ARCH_DIR)/crtn.s))
 
 SYMLINK_SENTINEL = $(OBJ_DIR)/.symlink_done
-
 COMPILE_COMMANDS = compile_commands.json
 
-all: $(LIB_NAME) $(COMPILE_COMMANDS)
-
+all: $(LIB_NAME) $(CRT_OBJS) $(COMPILE_COMMANDS)
 
 $(LIB_NAME): $(SYMLINK_SENTINEL) $(OBJS)
 	@mkdir -p $(dir $@)
 	@echo "[AR] $(notdir $@)"
 	@$(TARGET_AR) rcs $@ $(OBJS)
+
+$(BIN_DIR)/crti.o: $(CRTI_SRC)
+	@mkdir -p $(dir $@)
+	@echo "[CRT] $<"
+	@$(TARGET_CC) $(ASFLAGS) -c $< -o $@
+
+$(BIN_DIR)/crtn.o: $(CRTN_SRC)
+	@mkdir -p $(dir $@)
+	@echo "[CRT] $<"
+	@$(TARGET_CC) $(ASFLAGS) -c $< -o $@
 
 $(SYMLINK_SENTINEL): $(SPE_SYS_INC)
 	@mkdir -p $(OBJ_DIR)/include
@@ -53,11 +80,15 @@ $(OBJ_DIR)/%.o: %.c
 	@echo "[CC] $(notdir $<)"
 	@$(TARGET_CC) $(CFLAGS) -c $< -o $@
 
-$(OBJ_DIR)/%.o: %.s
+$(OBJ_DIR)/%.o: %.S
 	@mkdir -p $(dir $@)
 	@echo "[AS] $(notdir $<)"
 	@$(TARGET_CC) $(ASFLAGS) -c $< -o $@
 
+$(OBJ_DIR)/%.o: %.s
+	@mkdir -p $(dir $@)
+	@echo "[AS] $(notdir $<)"
+	@$(TARGET_CC) $(ASFLAGS) -c $< -o $@
 
 $(COMPILE_COMMANDS): $(SRCS_C)
 	@echo "[GEN] compile_commands.json"
@@ -80,6 +111,7 @@ clean:
 
 fclean: clean
 	@rm -rf $(BIN_DIR)
+	@rm -f $(COMPILE_COMMANDS)
 
 re: fclean all
 

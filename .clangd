@@ -8,5 +8,6 @@ CompileFlags:
     - -isystem sys/
     - -isystem sys/hvos/include
     - -isystem obj/include
+    - -isystem sysdeps
   Remove:
     - -I*
