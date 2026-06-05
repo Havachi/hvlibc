@@ -11,6 +11,7 @@
 # define USE_HIDDEN_DEF
 #endif
 
+//Not yet implemented
 int	STRCOLL(const char *s1, const char *s2)
 {
 	abort();

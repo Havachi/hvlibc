@@ -1,5 +1,5 @@
-#include <stddef.h>
 #include <string.h>
+#include <libc-pointer-arith.h>
 
 #undef strcspn
 
@@ -7,10 +7,45 @@
 # define STRCSPN strcspn
 #endif
 
-size_t	*STRCSPN(const char *__s1, const char *__s2)
+size_t	STRCSPN(const char *str, const char *reject)
 {
-	return 0;
+	if (__hvlibc_unlikely(reject[0] == '\0') ||
+		__hvlibc_unlikely(reject[1] == '\0'))
+		return __strchrnul(str, reject[0]) - str;
+
+	unsigned char table[256];
+	unsigned char *p = memset(table, 0, 64);
+
+	memset(p + 64, 0, 64);
+	memset(p + 128, 0, 64);
+	memset(p + 192, 0, 64);
+
+	unsigned char *s = (unsigned char *)reject;
+	unsigned char tmp;
+
+	do
+		p[tmp = *s++] = 1;
+	while(tmp);
+
+	s = (unsigned char *)str;
+	if (p[s[0]]) return 0;
+	if (p[s[1]]) return 1;
+	if (p[s[2]]) return 2;
+	if (p[s[3]]) return 3;
+
+	s = (unsigned char *) PTR_ALIGN_DOWN (s, 4);
+
+	unsigned int c0, c1, c2, c3;
+	do {
+		s += 4;
+		c0 = p[s[0]];
+		c1 = p[s[1]];
+		c2 = p[s[2]];
+		c3 = p[s[3]];
+	} while((c0 | c1 | c2 | c3) == 0);
+
+	size_t count = s - (unsigned char *) str;
+	return (c0 | c1) != 0 ? count - c0 + 1 : count - c2 + 3;
 }
 
-weak_alias(__strcspn, strcspn)
 libc_hidden_builtin_def(strcspn)

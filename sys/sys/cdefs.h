@@ -49,5 +49,6 @@
 #define __THROWNL
 #define __NTH(fct)	fct
 #define __NTHNL(fct) fct
-
+#define __hvlibc_unlikely(cond) __builtin_expect ((cond), 0)
+#define __hvlibc_likely(cond) __builtin_expect ((cond), 1)
 #endif

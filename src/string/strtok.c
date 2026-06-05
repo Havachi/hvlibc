@@ -1,16 +1,8 @@
-#include <stddef.h>
 #include <string.h>
 
-#undef strtok
 
-#ifndef STRTOK
-# define STRTOK strtok
-#endif
-
-char	*STRTOK(char *__s, const char *__delim)
+char	*strtok(char *s, const char *delim)
 {
-	return 0;
+	static char *olds;
+	return __strtok_r(s, delim, &olds);
 }
-
-weak_alias(__strtok, strtok)
-libc_hidden_builtin_def(strtok)

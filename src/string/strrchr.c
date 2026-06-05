@@ -7,10 +7,21 @@
 # define STRRCHR strrchr
 #endif
 
-char	*STRRCHR(const char *__s, int __c)
+char	*STRRCHR(const char *s, int c)
 {
-	return 0;
+	const char *found, *p;
+	c = (unsigned char) c;
+
+	if (c == '\0')
+		return strchr(s, '\0');
+	found = NULL;
+
+	while ((p = strchr(s, c)) != NULL){
+		found = p;
+		s = p + 1;
+	}
+	return (char *) found;
 }
 
-weak_alias(__strrchr, strrchr)
+weak_alias(strrchr, rindex)
 libc_hidden_builtin_def(strrchr)

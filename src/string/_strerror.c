@@ -7,9 +7,11 @@
 # define STRERROR strerror
 #endif
 
-char	*STRERROR(int __e)
+char	*__strerror(int errnum)
 {
-	return 0;
+	if (errnum)
+		return NULL;
+	return NULL;
 }
 
 weak_alias(__strerror, strerror)

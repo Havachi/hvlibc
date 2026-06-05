@@ -1,4 +1,3 @@
-#include <stddef.h>
 #include <string.h>
 
 #undef strpbrk
@@ -7,10 +6,10 @@
 # define STRPBRK strpbrk
 #endif
 
-char	*STRPBRK(const char *__s, const char *__accept)
+char	*STRPBRK(const char *s, const char *accept)
 {
-	return 0;
+	s += strcspn(s, accept);
+	return *s ? (char *)s : NULL;
 }
 
-weak_alias(__strpbrk, strpbrk)
 libc_hidden_builtin_def(strpbrk)

@@ -9,7 +9,7 @@
 #define	EXIT_FAILURE	1
 #define	EXIT_SUCCESS	0
 
-#define ABORT_INSTRUCTION asm ("hlt")
+#define ABORT_INSTRUCTION __asm__ ("hlt")
 
 
 void abort(void);

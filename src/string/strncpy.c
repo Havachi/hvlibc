@@ -1,4 +1,3 @@
-#include <stddef.h>
 #include <string.h>
 
 #undef strncpy
@@ -7,10 +6,12 @@
 # define STRNCPY strncpy
 #endif
 
-char	*STRNCPY(char *__dest, const char *__src, size_t __n)
+char	*STRNCPY(char *s1, const char *s2, size_t n)
 {
-	return 0;
+	size_t size = __strnlen(s2, n);
+	if (size != n)
+		memset(s1 + size, '\0', n - size);
+	return memcpy(s1, s2, size);
 }
 
-weak_alias(__strncpy, strncpy)
 libc_hidden_builtin_def(strncpy)
