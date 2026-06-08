@@ -19,8 +19,8 @@ void atexit(void (*)(void));
 void atoi(const char *);
 void free(void *);
 void getenv(const char *);
-void malloc(size_t size);
-void calloc(size_t size, size_t n);
+void *malloc(size_t size);
+void *calloc(size_t size, size_t n);
 
 __END_DECLS
 

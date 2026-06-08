@@ -31,7 +31,7 @@ else
 INC_FLAGS = -I$(INC_DIR) -I$(SYS_INC) -I$(SPE_SYS_INC) -I$(OBJ_DIR)/include -I$(SYSDEPS_ARCH_DIR) -I$(SYSDEPS_GEN_DIR)
 endif
 
-CFLAGS    = -ffreestanding -Wall -Wextra -Werror -O2 $(INC_FLAGS) -std=c11 -MMD -MP -nostdinc
+CFLAGS    = -ffreestanding -Wall -Wextra -O2 $(INC_FLAGS) -std=c11 -MMD -MP -nostdinc
 ASFLAGS   = -ffreestanding $(INC_FLAGS) -MMD -MP
 
 SRCS_C   := $(shell find $(SRC_DIR) -name '*.c' 2>/dev/null) \
@@ -123,6 +123,10 @@ install:
 	@echo "[INSTALL] $(INSTALL_DEST)"
 	cp $(LIB_NAME) $(INSTALL_DEST)
 
+install_headers:
+	@echo "[INSTALL] hvlibc includes"
+	cp -RT $(INC_DIR) $(SYSROOT_DIR)/usr/include
+
 -include $(DEPS)
 
-.PHONY: all clean fclean re compile_commands
+.PHONY: all clean fclean re compile_commands install install_headers

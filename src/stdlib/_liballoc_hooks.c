@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdint.h>
 
 extern void *user_alloc_page(uint32_t pages);
 extern void user_free_pages(void *ptr, uint32_t pages);
