@@ -11,4 +11,4 @@ void *MEMPCPY (void *dest, const void *src, size_t len) {
 	return memcpy(dest, src, len);
 }
 
-weak_alias(MEMPCPY, mempcpy);
+weak_alias(__mempcpy, mempcpy);

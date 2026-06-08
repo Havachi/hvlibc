@@ -7,13 +7,51 @@
 # define cfi_offset_rel_rsp(regn, off) .cfi_escape 0x10, regn, 0x4, 0x13, \
 	0x77, off & 0x7F | 0x80, off >> 7
 
+#undef PSEUDO
 #define PSEUDO (name, syscall_name, args) \
-lose: \
-	jmp JUMPTARGET(sycall_error) \
-	.globl syscall_error;	\
-	ENTRY (name)	\
+.text
+ENTRY (name)
 	DO_CALL (syscall_name, args); \
-	jb lose
+	cmpq $-4095, %rax; \
+	jae SYSCALL_ERROR_LABEL
+
+#undef PSEUDO_END
+#define PSEUDO_END(name) \
+	SYSCALL_ERROR_HANDLER \
+	END(name) 
+
+#undef PSEUDO_NOERROR
+#define PSEUDO_NOERROR(name, syscall_name, args) \
+	END(name)
+
+#define ret_NOERROR ret
+
+#undef PSEUDO_ERRVAL
+#define PSEUDO_ERRVAL(name, syscall_name, args) \
+.text \
+ENTRY(name) \
+	DO_CALL(syscall_name, args) \
+	negq %rax
+
+#undef PSEUDO_END_ERRVAL
+#define PSEUDO_END_ERRVAL(name) \
+	END(name)
+
+#define ret_ERRVAL ret
+
+#undef DO_CALL
+#define DO_CALL(syscall_name, args) \
+	DOARGS_##args \
+	movl syscall_name, %eax; \
+	syscall;
+
+#define DOARGS_0
+#define DOARGS_1
+#define DOARGS_2
+#define DOARGS_3
+#define DOARGS_4	movq %rcx, %r10;
+#define DOARGS_5	DOARGS_4
+#define DOARGS_6	DOARGS_5
 
 #undef JUMPTARGET
 
@@ -47,6 +85,7 @@ lose: \
 #define R13_LP	r13
 #define R14_LP	r14
 #define R15_LP	r15
+
 #else
 
 #define LP_SIZE "8"
@@ -69,6 +108,18 @@ lose: \
 #define R13_LP	"r13"
 #define R14_LP	"r14"
 #define R15_LP	"r15"
+
+#undef INLINE_SYSCALL
+#define INLINE_SYSCALL(name, nr, args...) \
+	({ \
+		unsigned long int resultvar= INTERNAL_SYSCALL(name, , nr, args); \
+		if (__hvlibc_unlikely(INTERNAL_SYSCALL_ERROR_P (resultvar, ))) \
+		{ \
+			__set_errno(INTERNAL_SYSCALL_ERRNO (resultvar,)); \
+			resultvar = (unsigned long int) -1; \
+		} \
+		(long int )resultvar; }) 
+
 
 #endif /* __ASSEMBLER__ */
 

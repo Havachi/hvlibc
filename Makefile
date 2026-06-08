@@ -22,6 +22,8 @@ SYSDEPS_DIR      = sysdeps
 SYSDEPS_ARCH_DIR = sysdeps/$(strip $(ARCH))
 SYSDEPS_GEN_DIR  = sysdeps/generic
 
+SYSROOT_DIR ?= sysroot
+
 SYSTEMINCL = 1
 ifeq ($(SYSTEMINCL), 1)
 INC_FLAGS = -isystem$(INC_DIR) -isystem$(SYS_INC) -isystem$(SPE_SYS_INC) -isystem$(OBJ_DIR)/include -isystem$(SYSDEPS_ARCH_DIR) -isystem$(SYSDEPS_GEN_DIR)
@@ -51,6 +53,8 @@ CRTN_SRC := $(firstword $(wildcard $(SYSDEPS_ARCH_DIR)/crtn.S) $(wildcard $(SYSD
 
 SYMLINK_SENTINEL = $(OBJ_DIR)/.symlink_done
 COMPILE_COMMANDS = compile_commands.json
+
+INSTALL_DEST := $(SYSROOT_DIR)/usr/lib/libc.a
 
 all: $(LIB_NAME) $(CRT_OBJS) $(COMPILE_COMMANDS)
 
@@ -114,6 +118,10 @@ fclean: clean
 	@rm -f $(COMPILE_COMMANDS)
 
 re: fclean all
+
+install:
+	@echo "[INSTALL] $(INSTALL_DEST)"
+	cp $(LIB_NAME) $(INSTALL_DEST)
 
 -include $(DEPS)
 

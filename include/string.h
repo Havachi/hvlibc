@@ -1,5 +1,5 @@
-#ifndef _HVLIBC_STRING_H
-#define _HVLIBC_STRING_H 1
+#ifndef _STRING_H
+#define _STRING_H 1
 
 #include <stddef.h>
 

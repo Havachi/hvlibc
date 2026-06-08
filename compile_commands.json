@@ -181,6 +181,12 @@
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
+    "file":      "/home/h/src/projects/hvos/hvlibc/sys/hvos/syscall.c",
+    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -Werror -O2 -isysteminclude -isystemsys -isystemsys/hvos/include -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -std=c11 -MMD -MP -nostdinc -c /home/h/src/projects/hvos/hvlibc/sys/hvos/syscall.c"
+  }
+  ,
+  {
+    "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/sys/hvos/_write.c",
     "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -Werror -O2 -isysteminclude -isystemsys -isystemsys/hvos/include -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -std=c11 -MMD -MP -nostdinc -c /home/h/src/projects/hvos/hvlibc/sys/hvos/_write.c"
   }
