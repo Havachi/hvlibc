@@ -121,11 +121,11 @@ re: fclean all
 
 install:
 	@echo "[INSTALL] $(INSTALL_DEST)"
-	cp $(LIB_NAME) $(INSTALL_DEST)
+	@cp $(LIB_NAME) $(INSTALL_DEST)
 
 install_headers:
 	@echo "[INSTALL] hvlibc includes"
-	cp -RT $(INC_DIR) $(SYSROOT_DIR)/usr/include
+	@cp -RT $(INC_DIR) $(SYSROOT_DIR)/usr/include
 
 -include $(DEPS)
 
