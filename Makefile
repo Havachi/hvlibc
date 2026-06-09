@@ -28,9 +28,9 @@ SYSROOT_DIR ?= sysroot
 
 SYSTEMINCL = 1
 ifeq ($(SYSTEMINCL), 1)
-INC_FLAGS = -isystem$(INC_DIR) -isystem$(SYS_INC) -isystem$(SPE_SYS_INC) -isystem$(OBJ_DIR)/include -isystem$(SYSDEPS_ARCH_DIR) -isystem$(SYSDEPS_GEN_DIR)
+INC_FLAGS = -isystem$(INC_DIR) -isystem$(SYS_INC) -isystem$(OBJ_DIR)/include -isystem$(SYSDEPS_ARCH_DIR) -isystem$(SYSDEPS_GEN_DIR)
 else
-INC_FLAGS = -I$(INC_DIR) -I$(SYS_INC) -I$(SPE_SYS_INC) -I$(OBJ_DIR)/include -I$(SYSDEPS_ARCH_DIR) -I$(SYSDEPS_GEN_DIR)
+INC_FLAGS = -I$(INC_DIR) -I$(SYS_INC) -I$(OBJ_DIR)/include -I$(SYSDEPS_ARCH_DIR) -I$(SYSDEPS_GEN_DIR)
 endif
 
 CFLAGS    = -ffreestanding -Wall -Wextra -O2 $(INC_FLAGS) -std=c11 -MMD -MP
@@ -42,7 +42,7 @@ SRCS_C   := $(shell find $(SRC_DIR) -name '*.c' 2>/dev/null) \
 SRCS_ASM := $(wildcard $(SYSDEPS_ARCH_DIR)/*.S) $(wildcard $(SYSDEPS_ARCH_DIR)/*.s) \
             $(wildcard $(SYSDEPS_GEN_DIR)/*.S) $(wildcard $(SYSDEPS_GEN_DIR)/*.s)
 
-SRCS_ASM := $(filter-out %crti.S %crti.s %crtn.S %crtn.s, $(SRCS_ASM))
+SRCS_ASM := $(filter-out %crti.S %crti.s %crtn.S %crtn.s %crt0.S %crt0.s, $(SRCS_ASM))
 
 OBJS_C   := $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRCS_C))
 OBJS_ASM_UPPER := $(patsubst %.S, $(OBJ_DIR)/%.o, $(filter %.S, $(SRCS_ASM)))
@@ -52,6 +52,7 @@ DEPS     := $(OBJS:.o=.d) $(CRT_OBJS:.o=.d)
 
 CRTI_SRC := $(firstword $(wildcard $(SYSDEPS_ARCH_DIR)/crti.S) $(wildcard $(SYSDEPS_ARCH_DIR)/crti.s))
 CRTN_SRC := $(firstword $(wildcard $(SYSDEPS_ARCH_DIR)/crtn.S) $(wildcard $(SYSDEPS_ARCH_DIR)/crtn.s))
+CRT0_SRC := $(firstword $(wildcard $(SYSDEPS_ARCH_DIR)/crt0.S) $(wildcard $(SYSDEPS_ARCH_DIR)/crt0.s))
 
 COMPILE_COMMANDS = compile_commands.json
 
