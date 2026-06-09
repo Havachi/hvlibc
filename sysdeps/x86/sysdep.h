@@ -19,7 +19,7 @@
 #ifndef _X86_SYSDEP_H
 #define _X86_SYSDEP_H 1
 
-#include <sysdeps/generic/sysdep.h>
+#include "../generic/sysdep.h"
 
 /* __CET__ is defined by GCC with Control-Flow Protection values:
 

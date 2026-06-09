@@ -1,1 +1,1 @@
-#include <sys/syscall.h>
+#include <syscall-ids.h>

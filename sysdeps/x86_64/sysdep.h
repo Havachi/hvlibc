@@ -1,7 +1,7 @@
 #ifndef _X86_64_SYSDEPS_H
 #define _X86_64_SYSDEPS_H 1
 
-#include <sysdeps/x86/sysdep.h>
+#include "../x86/sysdep.h"
 
 #ifdef __ASSEMBLER__
 # define cfi_offset_rel_rsp(regn, off) .cfi_escape 0x10, regn, 0x4, 0x13, \
@@ -119,7 +119,6 @@ ENTRY(name) \
 			resultvar = (unsigned long int) -1; \
 		} \
 		(long int )resultvar; }) 
-
 
 #endif /* __ASSEMBLER__ */
 
