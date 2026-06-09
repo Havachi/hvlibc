@@ -12,6 +12,7 @@ typedef __ptrdiff_t ptrdiff_t;
 
 #ifndef	_SIZE_T_DEFINED_
 #define	_SIZE_T_DEFINED_
+#define _HAVE_SIZE_T
 typedef	__size_t	size_t;
 #endif
 

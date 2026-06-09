@@ -8,7 +8,6 @@ _start:
 	movq %rsp, %rbp
 	pushq %rsi
 	pushq %rdi
-	call initialize_standard_library
 	call _init
 	popq %rdi
 	popq %rsi

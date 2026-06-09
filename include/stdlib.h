@@ -4,8 +4,7 @@
 #include <stddef.h>
 #include <sys/cdefs.h>
 #include <sys/_null.h>
-#include <machine/_types.h>
-
+#include <liballoc.h>
 
 #define	EXIT_FAILURE	1
 #define	EXIT_SUCCESS	0
@@ -17,10 +16,12 @@ __BEGIN_DECLS
 void abort(void);
 void atexit(void (*)(void));
 void atoi(const char *);
-void free(void *);
 void getenv(const char *);
-void *malloc(size_t size);
-void *calloc(size_t size, size_t n);
+
+extern void *malloc(size_t size);
+extern void *calloc(size_t size, size_t n);
+extern void *realloc(size_t size, size_t n);
+extern void free(void *);
 
 __END_DECLS
 

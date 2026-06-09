@@ -1,4 +1,4 @@
-#include "liballoc.h"
+#include <liballoc.h>
 
 /**  Durand's Ridiculously Amazing Super Duper Memory functions.  */
 
@@ -277,7 +277,7 @@ static struct boundary_tag* allocate_new_tag( unsigned int size )
 
 
 
-void *malloc(size_t size)
+void *___malloc(size_t size)
 {
 	int index;
 	void *ptr;
@@ -388,11 +388,11 @@ void *malloc(size_t size)
 	return ptr;
 }
 
+weak_alias(___malloc, malloc);
 
 
 
-
-void free(void *ptr)
+void __free(void *ptr)
 {
 	int index;
 	struct boundary_tag *tag;
@@ -484,10 +484,12 @@ void free(void *ptr)
 	liballoc_unlock();
 }
 
+weak_alias(__free, free);
 
 
 
-void* calloc(size_t nobj, size_t size)
+
+void* __calloc(size_t nobj, size_t size)
 {
        int real_size;
        void *p;
@@ -501,9 +503,10 @@ void* calloc(size_t nobj, size_t size)
        return p;
 }
 
+weak_alias(__calloc, calloc);
 
 
-void*   realloc(void *p, size_t size)
+void*   __realloc(void *p, size_t size)
 {
 	void *ptr;
 	struct boundary_tag *tag;
@@ -529,3 +532,5 @@ void*   realloc(void *p, size_t size)
 
 	return ptr;
 }
+
+weak_alias(__realloc, realloc);

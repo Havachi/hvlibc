@@ -3,6 +3,10 @@
 
 #include <stddef.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 extern void    *memcpy(void * __dest, const void * __src, size_t __n);
 extern void    *memmove(void *__dest, const void *__src, size_t __n);
 extern void    *memccpy(void *__dest, const void *__src, int __c, size_t __n);
@@ -31,5 +35,7 @@ extern size_t   strspn(const char *__s, const char *__accept);
 extern char    *strstr(const char *__haystack, const char *__needle);
 extern char    *strtok(char *__s, const char *__delim);
 extern char    *__strtok_r(char *__s, const char *__delim, char **__save_ptr);
-
+#ifdef __cplusplus
+} /* <-- MAKE SURE THIS IS NOT MISSING OR TYPOED */
+#endif
 #endif
