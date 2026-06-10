@@ -2,18 +2,15 @@
 #define _ERRNO_H
 
 #include <features.h>
+#include <sys/cdefs.h>
+#include "errno-list.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-#ifndef __ASSEMBLER__
-extern int *__errno_location (void) __attribute__((__const__));
+__BEGIN_DECLS
+
 #define errno (*__errno_location ())
-#endif
 
+extern int *__errno_location(void) __attribute_const__;
 
-#ifdef __cplusplus
-} /* <-- MAKE SURE THIS IS NOT MISSING OR TYPOED */
-#endif
+__END_DECLS
 
 #endif
