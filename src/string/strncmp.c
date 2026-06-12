@@ -1,5 +1,4 @@
 #include <string.h>
-#include <memcopy.h>
 
 #undef strncmp
 

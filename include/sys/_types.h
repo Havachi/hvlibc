@@ -75,4 +75,6 @@ typedef	int				__rune_t;
 typedef	void *			__wctrans_t;
 typedef	void *			__wctype_t;
 
+typedef unsigned int __max_align_t;
+
 #endif

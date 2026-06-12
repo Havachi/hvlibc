@@ -1,5 +1,4 @@
 #include <string.h>
-#include <memcopy.h>
 #include <stdlib.h>
 
 #undef __strchrnul
