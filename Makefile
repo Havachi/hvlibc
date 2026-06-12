@@ -79,7 +79,7 @@ $(BIN_DIR)/crtn.o: $(CRTN_SRC)
 	@echo "[CRT] $<"
 	@$(TARGET_CC) $(ASFLAGS) -c $< -o $@
 
-$(BIN_DIR)/crt0.o: $(CRTN_SRC)
+$(BIN_DIR)/crt0.o: $(CRT0_SRC)
 	@mkdir -p $(dir $@)
 	@echo "[CRT] $<"
 	@$(TARGET_CC) $(ASFLAGS) -c $< -o $@
