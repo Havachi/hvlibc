@@ -26,6 +26,8 @@ SYSDEPS_GEN_DIR  = sysdeps/generic
 
 SYSROOT_DIR ?= sysroot
 
+GCC_INTERNAL_INC := $(shell $(TARGET_CC) -print-file-name=include)
+
 SYSTEMINCL = 1
 ifeq ($(SYSTEMINCL), 1)
 INC_FLAGS = -isystem$(INC_DIR) -isystem$(SYS_INC) -isystem$(OBJ_DIR)/include -isystem$(SYSDEPS_ARCH_DIR) -isystem$(SYSDEPS_GEN_DIR)
@@ -33,7 +35,10 @@ else
 INC_FLAGS = -I$(INC_DIR) -I$(SYS_INC) -I$(OBJ_DIR)/include -I$(SYSDEPS_ARCH_DIR) -I$(SYSDEPS_GEN_DIR)
 endif
 
-CFLAGS    = -ffreestanding -Wall -Wextra -O2 $(INC_FLAGS) -std=c11 -MMD -MP
+INC_FLAGS += -isystem $(GCC_INTERNAL_INC)
+
+
+CFLAGS    = -ffreestanding -Wall -Wextra -O2 $(INC_FLAGS) -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone
 ASFLAGS   = -ffreestanding $(INC_FLAGS) -MMD -MP
 
 SRCS_C   := $(shell find $(SRC_DIR) -name '*.c' 2>/dev/null) \

@@ -43,9 +43,12 @@ extern FILE* stderr;
 
 #define BUFSIZ 8192
 
-#define _IOFBF 0
-#define _IOLBF 1
-#define _IONBF 2
+/*fully buffered*/
+#define _IOFBF 0x0008
+/*Line-buffered*/
+#define _IOLBF 0x0002
+/*unbuffered*/
+#define _IONBF 0x0004
 
 #define SEEK_SET 0
 #define SEEK_CUR 1
@@ -122,6 +125,7 @@ extern int getchar (void);
 extern int fputc (int __c, FILE *__stream) __nonnull ((2));
 extern int putc (int __c, FILE *__stream) __nonnull ((2));
 extern int putchar (int __c);
+#define putchar(c) putc(c, stdout)
 
 extern char *fgets (char *__restrict __s, int __n, FILE *__restrict __stream)
      __wur __nonnull ((3));

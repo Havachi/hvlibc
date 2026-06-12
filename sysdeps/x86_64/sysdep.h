@@ -1,6 +1,6 @@
 #ifndef _X86_64_SYSDEPS_H
 #define _X86_64_SYSDEPS_H 1
-
+#include "syscall-ids.h"
 #include "../x86/sysdep.h"
 
 #ifdef __ASSEMBLER__
@@ -119,6 +119,19 @@ ENTRY(name) \
 			resultvar = (unsigned long int) -1; \
 		} \
 		(long int )resultvar; }) 
+
+#define __syscall3(num, arg1, arg2, arg3) ({	\
+	long _ret;									\
+	__asm__ __volatile__(						\
+		"syscall"								\
+		: "=a"(_ret)							\
+		: "a"((long)(num)), "D"((long)(arg1)), "S"((long)(arg2)), "d"((long)(arg3)) \
+		: "rcx", "r11", "memory"				\
+	);											\
+	_ret;										\
+})
+
+
 
 #endif /* __ASSEMBLER__ */
 

@@ -1,3 +1,4 @@
+#include <stdio.h>
 #ifndef __LIBHVIO_H
 #define __LIBHVIO_H 1
 
@@ -10,5 +11,7 @@
 #define _IO_NO_WRITES			0x0008
 
 #define _IO_ISFILE				0x2000
+
+extern int _file_flush(FILE *stream);
 
 #endif

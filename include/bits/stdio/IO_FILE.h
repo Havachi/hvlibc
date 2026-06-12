@@ -4,6 +4,7 @@
 struct _IO_FILE {
 	int fd;
 	int _flags;
+
 	char *read_ptr;
 	char *read_end;
 	char *read_base;
@@ -12,6 +13,7 @@ struct _IO_FILE {
 	char *write_base;
 	char *buf_base;
 	char *buf_end;
+	
 };
 
 #endif
