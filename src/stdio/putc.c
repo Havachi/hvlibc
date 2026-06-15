@@ -11,3 +11,7 @@ int putc(int c, FILE *stream) {
 	else
 		return EOF;
 }
+
+int putchar (int c) {
+	return putc(c, stdout);
+}

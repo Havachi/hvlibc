@@ -35,6 +35,10 @@ extern size_t   strspn(const char *__s, const char *__accept);
 extern char    *strstr(const char *__haystack, const char *__needle);
 extern char    *strtok(char *__s, const char *__delim);
 extern char    *__strtok_r(char *__s, const char *__delim, char **__save_ptr);
+
+extern char *itoa(int num, char* str, int radix);
+extern char *litoa(unsigned long num, char* str, int radix);
+
 #ifdef __cplusplus
 } /* <-- MAKE SURE THIS IS NOT MISSING OR TYPOED */
 #endif

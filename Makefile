@@ -38,7 +38,7 @@ endif
 INC_FLAGS += -isystem $(GCC_INTERNAL_INC)
 
 
-CFLAGS    = -ffreestanding -Wall -Wextra -O2 $(INC_FLAGS) -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone
+CFLAGS    = -ffreestanding -Wall -Wextra -g -O2 $(INC_FLAGS) -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone
 ASFLAGS   = -ffreestanding $(INC_FLAGS) -MMD -MP
 
 SRCS_C   := $(shell find $(SRC_DIR) -name '*.c' 2>/dev/null) \

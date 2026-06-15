@@ -120,6 +120,29 @@ ENTRY(name) \
 		} \
 		(long int )resultvar; }) 
 
+
+#define __syscall1(num, arg1) ({					\
+		long _ret;									\
+		__asm__ __volatile__(						\
+			"syscall"								\
+			: "=a"(_ret)							\
+			: "a"((long)(num)) , "D"((long)(arg1))	\
+			: "rcx", "r11", "memory"				\
+		);											\
+		_ret;										\
+})
+
+#define __syscall2(num, arg1, arg2) ({				\
+		long _ret;									\
+		__asm__ __volatile__(						\
+			"syscall"								\
+			: "=a"(_ret)							\
+			: "a"((long)(num)) , "D"((long)(arg1)), "S"((long)(arg2))	\
+			: "rcx", "r11", "memory"				\
+		);											\
+		_ret;										\
+})
+
 #define __syscall3(num, arg1, arg2, arg3) ({	\
 	long _ret;									\
 	__asm__ __volatile__(						\

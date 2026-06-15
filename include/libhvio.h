@@ -13,5 +13,5 @@
 #define _IO_ISFILE				0x2000
 
 extern int _file_flush(FILE *stream);
-
+extern int _file_underflow(FILE *stream);
 #endif

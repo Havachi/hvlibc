@@ -15,6 +15,7 @@ __BEGIN_DECLS
 
 void abort(void);
 void atexit(void (*)(void));
+void exit(int exit_code);
 void atoi(const char *);
 void getenv(const char *);
 
@@ -22,6 +23,11 @@ extern void *malloc(size_t size);
 extern void *calloc(size_t size, size_t n);
 extern void *realloc(size_t size, size_t n);
 extern void free(void *);
+
+
+int execve(const char *pathname, char *const argv[], char *const envp[]);
+int execv(const char *pathname, char *const argv[]);
+int exec(const char *pathname);
 
 __END_DECLS
 

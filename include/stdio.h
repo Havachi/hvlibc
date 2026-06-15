@@ -125,7 +125,6 @@ extern int getchar (void);
 extern int fputc (int __c, FILE *__stream) __nonnull ((2));
 extern int putc (int __c, FILE *__stream) __nonnull ((2));
 extern int putchar (int __c);
-#define putchar(c) putc(c, stdout)
 
 extern char *fgets (char *__restrict __s, int __n, FILE *__restrict __stream)
      __wur __nonnull ((3));
