@@ -4,7 +4,7 @@
 int _file_underflow(FILE *stream) {
 	size_t buf_size = stream->buf_end - stream->buf_base;
 
-	long bytes_read = __syscall3(SC_READ, stream->fd, stream->buf_base, buf_size);
+	long bytes_read = _io_read(stream->fd, stream->buf_base, buf_size);
 	if (bytes_read <= 0) {
 		return EOF;
 	}
