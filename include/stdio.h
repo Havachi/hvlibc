@@ -25,13 +25,14 @@ typedef struct _IO_FILE FILE;
 typedef __fpos_t fpos_t;
 
 /* Predefined standard streams */
-extern FILE* stdin;
-extern FILE* stdout;
-extern FILE* stderr;
 
-#define stdin stdin
-#define stdout stdout
-#define stderr stderr
+extern FILE *stdin;
+extern FILE *stdout;
+extern FILE *stderr;
+
+#define stdin	stdin
+#define stdout	stdout
+#define stderr	stderr
 
 
 /* Macro constants */

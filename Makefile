@@ -9,13 +9,16 @@ TARGET_AR = $(strip $(ARCH))-elf-ar
 SRC_DIR = src
 SYS_DIR = sys/$(strip $(SYS))
 OBJ_DIR = obj
+OBJ_USER_DIR = $(OBJ_DIR)/user
+OBJ_KERNEL_DIR = $(OBJ_DIR)/kernel
 BIN_DIR = bin
 
 INC_DIR     = include
 SYS_INC     = sys
 SPE_SYS_INC = sys/$(strip $(SYS))/include
 
-LIB_NAME = $(BIN_DIR)/hvlibc.a
+LIB_NAME_USER = $(BIN_DIR)/libc.a
+LIB_NAME_KERNEL = $(BIN_DIR)/libk.a
 
 CRT_NAMES := crti crtn crt0
 CRT_OBJS  := $(patsubst %, $(BIN_DIR)/%.o, $(CRT_NAMES))
@@ -38,7 +41,12 @@ endif
 INC_FLAGS += -isystem $(GCC_INTERNAL_INC)
 
 
-CFLAGS    = -ffreestanding -Wall -Wextra -g -O2 $(INC_FLAGS) -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone
+COMMON_CFLAGS = -ffreestanding -Wall -Wextra -g -O2 $(INC_FLAGS) -std=c11 -MMD -MP -m64 --sysroot=$(SYSROOT_DIR) -D__hvos__ -isystem $(SYSROOT_DIR)/usr/include
+
+USER_CFLAGS = $(COMMON_CFLAGS) -fPIC
+KERNEL_CFLAGS = $(COMMON_CFLAGS) -D__KERNEL__ -mcmodel=kernel -mno-red-zone -mno-sse -mno-mmx -mno-sse2
+
+
 ASFLAGS   = -ffreestanding $(INC_FLAGS) -MMD -MP
 
 SRCS_C   := $(shell find $(SRC_DIR) -name '*.c' 2>/dev/null) \
@@ -49,11 +57,24 @@ SRCS_ASM := $(wildcard $(SYSDEPS_ARCH_DIR)/*.S) $(wildcard $(SYSDEPS_ARCH_DIR)/*
 
 SRCS_ASM := $(filter-out %crti.S %crti.s %crtn.S %crtn.s %crt0.S %crt0.s, $(SRCS_ASM))
 
-OBJS_C   := $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRCS_C))
+
+OBJS_USER_C := $(patsubst %.c, $(OBJ_USER_DIR)/%.o, $(SRCS_C))
+OBJS_USER_ASM_UPPER := $(patsubst %.S, $(OBJ_USER_DIR)/%.o, $(filter %.S, $(SRCS_ASM)))
+OBJS_USER_ASM_LOWER := $(patsubst %.s, $(OBJ_USER_DIR)/%.o, $(filter %.s, $(SRCS_ASM)))
+OBJS_USER     := $(OBJS_USER_C) $(OBJS_USER_ASM_UPPER) $(OBJS_USER_ASM_LOWER)
+
+OBJS_KERNEL_C := $(patsubst %.c, $(OBJ_KERNEL_DIR)/%.o, $(SRCS_C))
+OBJS_KERNEL_ASM_UPPER := $(patsubst %.S, $(OBJ_KERNEL_DIR)/%.o, $(filter %.S, $(SRCS_ASM)))
+OBJS_KERNEL_ASM_LOWER := $(patsubst %.s, $(OBJ_KERNEL_DIR)/%.o, $(filter %.s, $(SRCS_ASM)))
+OBJS_KERNEL     := $(OBJS_KERNEL_C) $(OBJS_KERNEL_ASM_UPPER) $(OBJS_KERNEL_ASM_LOWER)
+
+
+DEPS     := $(OBJS:.o=.d) $(CRT_OBJS:.o=.d)
+
 OBJS_ASM_UPPER := $(patsubst %.S, $(OBJ_DIR)/%.o, $(filter %.S, $(SRCS_ASM)))
 OBJS_ASM_LOWER := $(patsubst %.s, $(OBJ_DIR)/%.o, $(filter %.s, $(SRCS_ASM)))
 OBJS     := $(OBJS_C) $(OBJS_ASM_UPPER) $(OBJS_ASM_LOWER)
-DEPS     := $(OBJS:.o=.d) $(CRT_OBJS:.o=.d)
+DEPS     := $(OBJS_USER:.o=.d) $(OBJS_KERNEL:.o=.d) $(CRT_OBJS:.o=.d)
 
 CRTI_SRC := $(firstword $(wildcard $(SYSDEPS_ARCH_DIR)/crti.S) $(wildcard $(SYSDEPS_ARCH_DIR)/crti.s))
 CRTN_SRC := $(firstword $(wildcard $(SYSDEPS_ARCH_DIR)/crtn.S) $(wildcard $(SYSDEPS_ARCH_DIR)/crtn.s))
@@ -61,18 +82,24 @@ CRT0_SRC := $(firstword $(wildcard $(SYSDEPS_ARCH_DIR)/crt0.S) $(wildcard $(SYSD
 
 COMPILE_COMMANDS = compile_commands.json
 
-INSTALL_DEST := $(SYSROOT_DIR)/usr/lib/libc.a
+INSTALL_DEST_USER := $(SYSROOT_DIR)/usr/lib/libc.a
+INSTALL_DEST_KERNEL := $(SYSROOT_DIR)/usr/lib/libk.a
 
 CFLAGS += --sysroot=$(SYSROOT_DIR)
 CFLAGS += -D__hvos__
 CFLAGS += -isystem $(SYSROOT_DIR)/usr/include
 
-all: $(LIB_NAME) $(CRT_OBJS) $(COMPILE_COMMANDS)
+all: $(LIB_NAME_USER) $(LIB_NAME_KERNEL) $(CRT_OBJS) $(COMPILE_COMMANDS)
 
-$(LIB_NAME): $(OBJS)
+$(LIB_NAME_USER): $(OBJS_USER)
 	@mkdir -p $(dir $@)
-	@echo "[AR] $(notdir $@)"
-	@$(TARGET_AR) rcs $@ $(OBJS)
+	@echo "[AR USER] $(notdir $@)"
+	@$(TARGET_AR) rcs $@ $(OBJS_USER)
+
+$(LIB_NAME_KERNEL): $(OBJS_KERNEL)
+	@mkdir -p $(dir $@)
+	@echo "[AR KERNEL] $(notdir $@)"
+	@$(TARGET_AR) rcs $@ $(OBJS_KERNEL)
 
 $(BIN_DIR)/crti.o: $(CRTI_SRC)
 	@mkdir -p $(dir $@)
@@ -89,20 +116,41 @@ $(BIN_DIR)/crt0.o: $(CRT0_SRC)
 	@echo "[CRT] $<"
 	@$(TARGET_CC) $(ASFLAGS) -c $< -o $@
 
-$(OBJ_DIR)/%.o: %.c
-	@mkdir -p $(dir $@)
-	@echo "[CC] $(notdir $<)"
-	@$(TARGET_CC) $(CFLAGS) -c $< -o $@
+# USER objs compilation
 
-$(OBJ_DIR)/%.o: %.S
+$(OBJ_USER_DIR)/%.o: %.c
 	@mkdir -p $(dir $@)
-	@echo "[AS] $(notdir $<)"
+	@echo "[CC U] $(notdir $<)"
+	@$(TARGET_CC) $(USER_CFLAGS) -c $< -o $@
+
+$(OBJ_USER_DIR)/%.o: %.S
+	@mkdir -p $(dir $@)
+	@echo "[AS U] $(notdir $<)"
 	@$(TARGET_CC) $(ASFLAGS) -c $< -o $@
 
-$(OBJ_DIR)/%.o: %.s
+$(OBJ_USER_DIR)/%.o: %.s
 	@mkdir -p $(dir $@)
-	@echo "[AS] $(notdir $<)"
+	@echo "[AS U] $(notdir $<)"
 	@$(TARGET_CC) $(ASFLAGS) -c $< -o $@
+
+# KERNEL objs compilation
+
+$(OBJ_KERNEL_DIR)/%.o: %.c
+	@mkdir -p $(dir $@)
+	@echo "[CC K] $(notdir $<)"
+	$(TARGET_CC) $(KERNEL_CFLAGS) -c $< -o $@
+
+$(OBJ_KERNEL_DIR)/%.o: %.S
+	@mkdir -p $(dir $@)
+	@echo "[AS K] $(notdir $<)"
+	@$(TARGET_CC) $(ASFLAGS) -c $< -o $@
+
+$(OBJ_KERNEL_DIR)/%.o: %.s
+	@mkdir -p $(dir $@)
+	@echo "[AS K] $(notdir $<)"
+	@$(TARGET_CC) $(ASFLAGS) -c $< -o $@
+
+
 
 $(COMPILE_COMMANDS): $(SRCS_C)
 	@echo "[GEN] compile_commands.json"
@@ -131,7 +179,8 @@ re: fclean all
 
 install:
 	@echo "[INSTALL] $(INSTALL_DEST)"
-	@cp $(LIB_NAME) $(INSTALL_DEST)
+	@cp $(LIB_NAME_USER) $(INSTALL_DEST_USER)
+	@cp $(LIB_NAME_KERNEL) $(INSTALL_DEST_KERNEL)
 	@cp $(CRT_OBJS) $(SYSROOT_DIR)/usr/lib/
 
 install_headers:

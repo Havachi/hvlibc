@@ -9,6 +9,13 @@
 
 static int _file_putc(int c, FILE *stream) {
 	if (!stream) return EOF;
+
+	if ((stream->_flags & _IONBF)) {
+		char ch = (char)c;
+		long written = _io_write(stream->fd, &ch, 1);
+		return (written == 1) ? c : EOF;
+	}
+
 	if (stream->write_ptr >= stream->write_end) {
 		if (_file_flush(stream) == EOF) return EOF;
 	}
@@ -17,9 +24,7 @@ static int _file_putc(int c, FILE *stream) {
 	if ((stream->_flags & _IOLBF) && c == '\n') {
 		if (_file_flush(stream) == EOF) return EOF;
 	}
-	if ((stream->_flags & _IONBF)) {
-		if (_file_flush(stream) == EOF) return EOF;
-	}
+
 	return c;
 }
 
@@ -37,6 +42,7 @@ static int _print_number(FILE *stream, unsigned long long value, int base, bool 
 	static const char HEX_DIGIT_LOWER[] = "0123456789abcdef";
 	static const char HEX_DIGIT_UPPER[] = "0123456789ABCDEF";
 	if (value == 0) {
+		_print_padding(stream, (pad_len-1), pad_char);
 		if (_file_putc('0', stream) == EOF) return -1;
 		return 1;
 	}
@@ -90,6 +96,7 @@ int vfprintf(FILE *restrict s, const char *restrict format, va_list arg) {
 
 		char pad_char = ' ';
 		int pad_len = 0;
+		int is_long = 0;
 
 		if (*p != '%') {
 			if (_file_putc(*p, s) == EOF) return -1;
@@ -98,14 +105,18 @@ int vfprintf(FILE *restrict s, const char *restrict format, va_list arg) {
 		}
 		p++;
 
-		while (*p == 'l')
-			p++;
 		if(*p == '0') {
 			pad_char = '0';
 			p++;
 		}
+
 		while (isdigit(*p)) {
 			pad_len = pad_len * 10 + (*p - '0');
+			p++;
+		}
+
+		while (*p == 'l') {
+			is_long++;
 			p++;
 		}
 
@@ -152,21 +163,28 @@ int vfprintf(FILE *restrict s, const char *restrict format, va_list arg) {
 				break;
 			}
 			case 'x': {
-				unsigned int n = va_arg(arg, unsigned int);
+				unsigned long long n;
+				if (is_long >= 2) n = va_arg(arg, unsigned long long);
+				else if (is_long == 1) n = va_arg(arg, unsigned long);
+				else n = va_arg(arg, unsigned int);
+
 				int printed = _print_number(s, n, 16, false, pad_len, pad_char);
 				if (printed < 0) return -1;
 				total += printed;
 				break;
 			}
 			case 'X': {
-				unsigned int n = va_arg(arg, unsigned int);
+				unsigned long long n;
+				if (is_long >= 2) n = va_arg(arg, unsigned long long);
+				else if (is_long == 1) n = va_arg(arg, unsigned long);
+				else n = va_arg(arg, unsigned int);
+
 				int printed = _print_number(s, n, 16, true, pad_len, pad_char);
 				if (printed < 0) return -1;
 				total += printed;
 				break;
 			}
 			case 'p': {
-				
 				void *ptr = va_arg(arg, void*);
 				if (_file_putc('0', s) == EOF || _file_putc('x', s) == EOF) return -1;
 				total += 2;

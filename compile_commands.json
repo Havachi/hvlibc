@@ -2,330 +2,330 @@
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/liballoc/liballoc.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/liballoc/liballoc.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/liballoc/liballoc.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/memcmp.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/memcmp.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/memcmp.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/strspn.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strspn.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strspn.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/strrchr.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strrchr.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strrchr.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/strtok_r.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strtok_r.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strtok_r.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/strcat.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strcat.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strcat.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/strncat.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strncat.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strncat.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/itoa.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/itoa.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/itoa.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/strtok.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strtok.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strtok.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/strlen.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strlen.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strlen.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/memcpy.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/memcpy.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/memcpy.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/strcoll.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strcoll.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strcoll.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/strncpy.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strncpy.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strncpy.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/strcspn.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strcspn.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strcspn.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/strchrnul.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strchrnul.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strchrnul.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/strpbrk.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strpbrk.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strpbrk.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/mempcpy.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/mempcpy.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/mempcpy.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/strnlen.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strnlen.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strnlen.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/strcmp.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strcmp.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strcmp.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/memccpy.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/memccpy.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/memccpy.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/memchr.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/memchr.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/memchr.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/strncmp.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strncmp.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strncmp.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/memset.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/memset.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/memset.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/strdup.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strdup.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strdup.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/_strerror.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/_strerror.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/_strerror.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/strstr.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strstr.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strstr.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/strchr.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strchr.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strchr.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/strcpy.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strcpy.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/strcpy.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/memmove.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/memmove.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/memmove.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/stdlib/exec.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdlib/exec.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdlib/exec.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/stdlib/exit.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdlib/exit.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdlib/exit.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/stdlib/malloc.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdlib/malloc.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdlib/malloc.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/stdlib/calloc.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdlib/calloc.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdlib/calloc.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/stdlib/_liballoc_hooks.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdlib/_liballoc_hooks.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdlib/_liballoc_hooks.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/stdlib/abort.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdlib/abort.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdlib/abort.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/stdio/printf.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdio/printf.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdio/printf.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/stdio/fgets.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdio/fgets.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdio/fgets.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/stdio/fflush.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdio/fflush.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdio/fflush.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/stdio/putc.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdio/putc.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdio/putc.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/stdio/puts.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdio/puts.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdio/puts.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/stdio/stdio.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdio/stdio.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdio/stdio.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/stdio/fwrite.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdio/fwrite.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdio/fwrite.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/stdio/fgetc.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdio/fgetc.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdio/fgetc.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/stdio/fopen.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdio/fopen.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/stdio/fopen.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/libc.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/libc.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/libc.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/libhv/io_read.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/libhv/io_read.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/libhv/io_read.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/libhv/io_write.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/libhv/io_write.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/libhv/io_write.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/libhv/io_open.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/libhv/io_open.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/libhv/io_open.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/libhv/_file_flush.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/libhv/_file_flush.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/libhv/_file_flush.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/libhv/libhvio.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/libhv/libhvio.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/libhv/libhvio.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/libhv/_file_underflow.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/libhv/_file_underflow.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/libhv/_file_underflow.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/sys/hvos/_exit.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/sys/hvos/_exit.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/sys/hvos/_exit.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/sys/hvos/_read.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/sys/hvos/_read.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/sys/hvos/_read.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/sys/hvos/syscall.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/sys/hvos/syscall.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/sys/hvos/syscall.c"
   }
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/sys/hvos/_write.c",
-    "command":   "x86_64-elf-gcc -ffreestanding -Wall -Wextra -g -O2 -isysteminclude -isystemsys -isystemobj/include -isystemsysdeps/x86_64 -isystemsysdeps/generic -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include -std=c11 -MMD -MP -m64 -mcmodel=kernel -mno-red-zone --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/sys/hvos/_write.c"
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/sys/hvos/_write.c"
   }
 ]
