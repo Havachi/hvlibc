@@ -9,8 +9,8 @@ int _file_underflow(FILE *stream) {
 		return EOF;
 	}
 
-	stream->read_base = stream->read_base;
-	stream->read_ptr = stream->read_base;
-	stream->read_end = stream->read_base + bytes_read;
+	stream->read_base = stream->buf_base;
+	stream->read_ptr = stream->buf_base;
+	stream->read_end = stream->buf_base + bytes_read;
 	return (unsigned char) *stream->read_ptr;
 }

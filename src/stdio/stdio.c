@@ -8,9 +8,9 @@ static char kernel_stdin_buffer[BUFSIZ] __attribute__((aligned(16)));
 static char kernel_stdout_buffer[BUFSIZ] __attribute__((aligned(16)));
 static char kernel_stderr_buffer[BUFSIZ] __attribute__((aligned(16)));
 #else
-static char user_stdin_buffer[BUFSIZ] __attribute__((aligned(16)));
-static char user_stdout_buffer[BUFSIZ] __attribute__((aligned(16)));
-static char user_stderr_buffer[BUFSIZ] __attribute__((aligned(16)));
+static char user_stdin_buffer[BUFSIZ] __attribute__((aligned(16))) 	 = {0};
+static char user_stdout_buffer[BUFSIZ] __attribute__((aligned(16)))  = {0};
+static char user_stderr_buffer[BUFSIZ] __attribute__((aligned(16)))  = {0};
 #endif
 
 
