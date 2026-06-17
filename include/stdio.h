@@ -10,7 +10,6 @@
 #include <bits/stdio/IO_FILE.h>
 #include <bits/stdio/__fpos_t.h>
 #define __need___va_list
-#include <stdarg.h>
 
 #ifndef _VA_LIST_DEFINED
 typedef __builtin_va_list va_list;

@@ -1,9 +1,9 @@
 #include <ctype.h>
 #include <stdio.h>
-#include <stdarg.h>
 #include <libhvio.h>
 #include <stdbool.h>
 #include <string.h>
+#include <stdarg.h>
 
 
 
@@ -11,9 +11,14 @@ static int _file_putc(int c, FILE *stream) {
 	if (!stream) return EOF;
 
 	if ((stream->_flags & _IONBF)) {
-		char ch = (char)c;
-		long written = _io_write(stream->fd, &ch, 1);
-		return (written == 1) ? c : EOF;
+		if (stream->fd == -1) {
+			*stream->write_ptr++ = (char)c;
+			return c;
+		} else {
+			char ch = (char)c;
+			long written = _io_write(stream->fd, &ch, 1);
+			return (written == 1) ? c : EOF;
+		}
 	}
 
 	if (stream->write_ptr >= stream->write_end) {
@@ -81,7 +86,26 @@ int fprintf(FILE *restrict stream, const char *restrict format, ...) {
 }
 
 int sprintf(char *restrict s, const char *restrict format, ...) {
-	return 0;
+	va_list args;
+	va_start(args, format);
+	int printed = vsprintf(s, format, args);
+	va_end(args);
+	return printed;
+}
+
+int vsprintf(char *restrict s, const char *restrict format, va_list arg) {
+
+	FILE stream;
+	stream.fd = -1;
+	stream._flags = _IONBF;
+	stream.write_ptr = (char *) s;
+	stream.write_end = (char *) -1;
+
+	int total = vfprintf(&stream, format, arg);
+	if (total >= 0) {
+		*stream.write_ptr = '\0';
+	}
+	return total;
 }
 
 int vprintf(const char *restrict format, va_list arg) {

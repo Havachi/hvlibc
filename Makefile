@@ -89,7 +89,7 @@ CFLAGS += --sysroot=$(SYSROOT_DIR)
 CFLAGS += -D__hvos__
 CFLAGS += -isystem $(SYSROOT_DIR)/usr/include
 
-all: $(LIB_NAME_USER) $(LIB_NAME_KERNEL) $(CRT_OBJS) $(COMPILE_COMMANDS)
+all: $(COMPILE_COMMANDS) $(LIB_NAME_USER) $(LIB_NAME_KERNEL) $(CRT_OBJS) 
 
 $(LIB_NAME_USER): $(OBJS_USER)
 	@mkdir -p $(dir $@)
@@ -138,7 +138,7 @@ $(OBJ_USER_DIR)/%.o: %.s
 $(OBJ_KERNEL_DIR)/%.o: %.c
 	@mkdir -p $(dir $@)
 	@echo "[CC K] $(notdir $<)"
-	$(TARGET_CC) $(KERNEL_CFLAGS) -c $< -o $@
+	@$(TARGET_CC) $(KERNEL_CFLAGS) -c $< -o $@
 
 $(OBJ_KERNEL_DIR)/%.o: %.S
 	@mkdir -p $(dir $@)
@@ -178,8 +178,9 @@ fclean: clean
 re: fclean all
 
 install:
-	@echo "[INSTALL] $(INSTALL_DEST)"
+	@echo "[INSTALL] $(notdir $(INSTALL_DEST_USER))"
 	@cp $(LIB_NAME_USER) $(INSTALL_DEST_USER)
+	@echo "[INSTALL] $(notdir $(INSTALL_DEST_KERNEL))"
 	@cp $(LIB_NAME_KERNEL) $(INSTALL_DEST_KERNEL)
 	@cp $(CRT_OBJS) $(SYSROOT_DIR)/usr/lib/
 
