@@ -154,7 +154,30 @@ ENTRY(name) \
 	_ret;										\
 })
 
+#define __syscall4(num, arg1, arg2, arg3, arg4) ({	\
+	long _ret;									\
+	register long _r10 __asm__("r10") = (long) (arg4);	\
+	__asm__ __volatile__(						\
+		"syscall"								\
+		: "=a"(_ret)							\
+		: "a"((long)(num)), "D"((long)(arg1)), "S"((long)(arg2)), "d"((long)(arg3)) \
+		: "rcx", "r11", "memory"				\
+	);											\
+	_ret;										\
+})
 
+#define __syscall5(num, arg1, arg2, arg3, arg4, arg5) ({	\
+	long _ret;									\
+	register long _r10 __asm__("r10") = (long) (arg4);	\
+	register long _r8 __asm__("r8") = (long) (arg5);	\
+	__asm__ __volatile__(						\
+		"syscall"								\
+		: "=a"(_ret)							\
+		: "a"((long)(num)), "D"((long)(arg1)), "S"((long)(arg2)), "d"((long)(arg3)) \
+		: "rcx", "r11", "memory"				\
+	);											\
+	_ret;										\
+})
 
 #endif /* __ASSEMBLER__ */
 

@@ -8,7 +8,8 @@ CompileFlags:
     - -isystem sys/
     - -isystem sys/hvos/include
     - -isystem obj/include
-    - -isystem sysdeps
+    - -isystem sysdeps/x86_64
+    - -isystem /home/h/src/projects/hvos/sysroot/include
     - -isystem /home/h/opt/cross/lib/gcc/x86_64-elf/16.1.0/include
   Remove:
     - -I*

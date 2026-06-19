@@ -7,6 +7,12 @@
   ,
   {
     "directory": "/home/h/src/projects/hvos/hvlibc",
+    "file":      "/home/h/src/projects/hvos/hvlibc/src/syscalls/wait.c",
+    "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/syscalls/wait.c"
+  }
+  ,
+  {
+    "directory": "/home/h/src/projects/hvos/hvlibc",
     "file":      "/home/h/src/projects/hvos/hvlibc/src/string/memcmp.c",
     "command":   "x86_64-elf-gcc --sysroot=../sysroot -D__hvos__ -isystem ../sysroot/usr/include -c /home/h/src/projects/hvos/hvlibc/src/string/memcmp.c"
   }
