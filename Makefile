@@ -80,6 +80,10 @@ CRTI_SRC := $(firstword $(wildcard $(SYSDEPS_ARCH_DIR)/crti.S) $(wildcard $(SYSD
 CRTN_SRC := $(firstword $(wildcard $(SYSDEPS_ARCH_DIR)/crtn.S) $(wildcard $(SYSDEPS_ARCH_DIR)/crtn.s))
 CRT0_SRC := $(firstword $(wildcard $(SYSDEPS_ARCH_DIR)/crt0.S) $(wildcard $(SYSDEPS_ARCH_DIR)/crt0.s))
 
+INSTALLED_CRT0 := $(SYSROOT_DIR)/usr/lib/crt0.o
+INSTALLED_CRTN := $(SYSROOT_DIR)/usr/lib/crtn.o
+INSTALLED_CRTI := $(SYSROOT_DIR)/usr/lib/crti.o
+
 COMPILE_COMMANDS = compile_commands.json
 
 INSTALL_DEST_USER := $(SYSROOT_DIR)/usr/lib/libc.a
@@ -177,12 +181,28 @@ fclean: clean
 
 re: fclean all
 
-install:
+install_all:
 	@echo "[INSTALL] $(notdir $(INSTALL_DEST_USER))"
 	@cp $(LIB_NAME_USER) $(INSTALL_DEST_USER)
 	@echo "[INSTALL] $(notdir $(INSTALL_DEST_KERNEL))"
 	@cp $(LIB_NAME_KERNEL) $(INSTALL_DEST_KERNEL)
 	@cp $(CRT_OBJS) $(SYSROOT_DIR)/usr/lib/
+
+install_libc: $(LIB_NAME_USER) $(INSTALLED_CRT0) $(INSTALLED_CRTN) $(INSTALLED_CRTI)
+	@cp $(LIB_NAME_USER) $(INSTALL_DEST_USER)
+
+install_libk: $(LIB_NAME_KERNEL)
+	@cp $(LIB_NAME_KERNEL) $(INSTALL_DEST_KERNEL)
+
+$(INSTALLED_CRT0): $(BIN_DIR)/crt0.o
+	@cp $(BIN_DIR)/crt0.o $(SYSROOT_DIR)/usr/lib/crt0.o
+
+$(INSTALLED_CRTN): $(BIN_DIR)/crtn.o
+	@cp $(BIN_DIR)/crtn.o $(SYSROOT_DIR)/usr/lib/crtn.o
+
+$(INSTALLED_CRTI): $(BIN_DIR)/crti.o
+	@cp $(BIN_DIR)/crti.o $(SYSROOT_DIR)/usr/lib/crti.o
+
 
 install_headers:
 	@echo "[INSTALL] hvlibc includes"
@@ -190,4 +210,4 @@ install_headers:
 
 -include $(DEPS)
 
-.PHONY: all clean fclean re compile_commands install install_headers
+.PHONY: all clean fclean re compile_commands install_all install_libc install_libk install_headers
